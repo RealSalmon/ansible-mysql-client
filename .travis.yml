@@ -19,7 +19,7 @@ script:
   # Test idempotency
   - >
       ansible-playbook --connection local -i localhost, playbook.yml
-      | grep -q '.*failed=0.*changed=0'
+      | grep -q '.*changed=0.*failed=0'
       || (echo 'Idempotency check failed' > /dev/stderr && exit 1)
 
   # Test for mysql client
